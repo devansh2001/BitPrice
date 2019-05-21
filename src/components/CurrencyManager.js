@@ -7,7 +7,8 @@ class CurrencyManager extends Component {
     this.state = {
       currencyCode: '',
       allData: [],
-      dataMap: []
+      dataMap: [],
+      refreshRequested: false
     }
   }
 
@@ -48,21 +49,29 @@ class CurrencyManager extends Component {
     })
   };
 
-  handleSubmit = () => {
-    const data = <Currency to={this.state.currencyCode} />;
-    this.setState(previousState => ({
-      allData: [...previousState.allData, data]
-    }))
+  handleRefresh = () => {
+    this.setState(prevState => ({
+      refreshRequested: !prevState.refreshRequested
+    }));
   };
 
-  myFunction = () => {
-    return 5
-  };
+  // handleRefresh = async () => {
+  //   let mainURL = 'https://api.coindesk.com/v1/bpi/currentprice/';
+  //   let jsonWord = '.json';
+  //   this.setState({
+  //     dataMap: []
+  //   })
+  //   for (let val in this.state.allData) {
+  //
+  //   }
+  // };
+
   render() {
     return (
         <div>
           <input type='text' value={this.state.currencyCode} onChange={this.handleChange}/>
           <button onClick={this.handleRequest}>Submit</button>
+          <button onClick={this.handleRefresh}>Refresh</button>
           <h1>Rendering all the data below</h1>
           <table>
             {this.state.dataMap}
