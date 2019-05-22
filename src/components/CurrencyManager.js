@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
-import Currency from './Currency.js'
 import mappingCountryCurrency from '../currencyDataFiles/data.js'
 import {Button, Select, MenuItem} from '@material-ui/core';
-import {spacing} from '@material-ui/system';
-import Footer from './Footer.js'
 
 
 class CurrencyManager extends Component {
@@ -25,6 +22,7 @@ class CurrencyManager extends Component {
     };
     this.recentUpdateTime = this.state.allData[0] ? this.state.allData['time']['updated'] : '';
     setInterval(this.handleRefresh, 60000);
+    this.handleRequest('USD');
   }
 
   //
@@ -134,6 +132,7 @@ class CurrencyManager extends Component {
       allData: []
     });
     await console.log('Set state');
+    this.handleRequest('USD');
     for (let i = 0; i < this.requestedCurrencies.length; i++) {
       await this.handleRequest(this.requestedCurrencies[i]);
     }
@@ -164,7 +163,7 @@ class CurrencyManager extends Component {
             <Button className={'form-field'} onClick={this.currencyIsPresent} variant="contained" color="primary">
               Get Rate
             </Button>
-            <Button m={0.5} className={'form-field refresh-temp'} onClick={this.handleRefresh} variant="contained" color="secondary">
+            <Button className={'form-field refresh-temp'} onClick={this.handleRefresh} variant="contained" color="secondary">
               Refresh
             </Button>
             {/*<button>Submit</button>*/}
@@ -180,17 +179,19 @@ class CurrencyManager extends Component {
               <th className='secondary-cols'>Change</th>
             </tr>
             <tr>
-              <th></th>
+              <th className={'secondary-children'}></th>
               <th className={'primary-children'}>Old</th>
               <th className={'primary-children'}>New</th>
               <th className={'primary-children'}>Old</th>
               <th className={'primary-children'}>New</th>
-              <th></th>
+              <th className={'secondary-children'}></th>
             </tr>
             {this.state.dataMap}
           </table>
 
-          <div className={'footer-time-2'}>
+          <br/>
+          <br/>
+          <div className={'footer-time'}>
             <h4>Updated {this.recentUpdateTime}</h4>
           </div>
         </div>
