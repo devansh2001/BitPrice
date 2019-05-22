@@ -1,16 +1,24 @@
 import React, {Component} from 'react'
 import Currency from './Currency.js'
+import mappingCountryCurrency from '../currencyDataFiles/data.js'
+import {Button, Select, MenuItem} from '@material-ui/core';
+import {spacing} from '@material-ui/system';
+import Footer from './Footer.js'
+
 
 class CurrencyManager extends Component {
   constructor(props) {
     super(props);
-    this.currencyData = [];
+    this.currencyData = mappingCountryCurrency;
+    // for (let data in mappingCountryCurrency) {
+    //   this.currencyData.push(<option value={data['currency']}> {data['currency']} </option>);
+    // }
     this.requestedCurrencies = [];
     this.oldRates = {
       "": 0.00
     };
     this.state = {
-      currencyCode: '',
+      currencyCode: 'AED',
       allData: [],
       dataMap: [],
       refreshRequested: false
@@ -30,6 +38,7 @@ class CurrencyManager extends Component {
     let currencyNewRate = 0.0000;
     let change = 0.00000000000000000000000;
     let changeColor = 'black';
+    let bgColor = 'white';
     console.log(this.requestedCurrencies);
     let mainURL = 'https://api.coindesk.com/v1/bpi/currentprice/';
     let jsonWord = '.json';
@@ -52,11 +61,14 @@ class CurrencyManager extends Component {
           change = 0;
         }
         if (change > 0) {
-          changeColor = 'green'
+          changeColor = 'green';
+          bgColor ='#CAF2BC'
         } else if (change < 0) {
-          changeColor = 'red'
+          changeColor = 'red';
+          bgColor ='#F2BCBC'
         } else {
-          changeColor = 'black'
+          changeColor = 'black';
+          bgColor = 'white'
         }
         console.log('Changed Rate to ' + currencyNewRate);
         this.setState(prevState => ({
@@ -70,11 +82,13 @@ class CurrencyManager extends Component {
     change *= 100;
     await this.setState(prevState => ({
       dataMap: [...prevState.dataMap,
-            <tr>
-              <td>{code}</td>
-              <td>{currencyPreviousRate}</td>
-              <td>{currencyNewRate}</td>
-              <td style={{color: changeColor}}>{change.toPrecision(5)}%</td>
+            <tr style={{backgroundColor: bgColor}}>
+              <td className={'row-normal'}>{code}</td>
+              <td className={'row-normal'}>{currencyPreviousRate}</td>
+              <td className={'row-normal'}>{currencyNewRate}</td>
+              <td className={'row-normal'}>{currencyPreviousRate == 0 ? 0 : (1/currencyPreviousRate)}</td>
+              <td className={'row-normal'}>{1/currencyNewRate}</td>
+              <td style={{color: changeColor}} className={'row-normal'}>{change.toPrecision(5)}%</td>
             </tr>
       ]
       //dataMap: this.state.allData.map(conversion => <li>{conversion['bpi'][this.state.currencyCode]['rate']}</li>)
@@ -87,22 +101,25 @@ class CurrencyManager extends Component {
     console.log('Old array: ' + this.oldRates);
   };
 
-  currencyIsPresent = async () => {
+  currencyIsPresent = async (e) => {
+    e.preventDefault(e);
     if (this.requestedCurrencies.some(item => item === this.state.currencyCode)) {
       console.log('TRUE');
     } else {
       console.log('FALSE');
       await this.requestedCurrencies.push(this.state.currencyCode);
       await this.handleRequest();
-      this.setState({
-        currencyCode: ''
-      });
+      // this.setState({
+      //   currencyCode: ''
+      // });
     }
   };
 
   handleChange = (event) => {
     this.setState({
-      currencyCode: event.target.value.toUpperCase()
+      currencyCode: event.target.value
+
+      //currencyCode: event.target.value.toUpperCase()
     })
   };
 
@@ -139,24 +156,44 @@ class CurrencyManager extends Component {
   render() {
     console.log('Rendering');
     return (
-        <div>
-          <select>
-
-          </select><br/>
-          <input type='text' value={this.state.currencyCode} onChange={this.handleChange}/>
-          <button onClick={this.currencyIsPresent}>Submit</button>
-          <button onClick={this.handleRefresh}>Refresh</button>
-          <h1>Rendering all the data below</h1>
+        <div className='currency-manager'>
+          <form className={'input-form'} onSubmit={this.currencyIsPresent}>
+            Select Currency:
+            <Select className={'form-field'} value={this.state.currencyCode} onChange={this.handleChange}>
+              {this.currencyData.map(myOption => <MenuItem value={myOption['currency']}>{myOption['currency']}</MenuItem>)}
+            </Select>
+            <Button className={'form-field'} onClick={this.currencyIsPresent} variant="contained" color="primary">
+              Get Rate
+            </Button>
+            <Button m={0.5} className={'form-field refresh-temp'} onClick={this.handleRefresh} variant="contained" color="secondary">
+              Refresh
+            </Button>
+            {/*<button>Submit</button>*/}
+            {/*<button onClick={this.handleRefresh}>Refresh</button>*/}
+            <br/>
+          </form>
+          {/*<input type='text' value={this.state.currencyCode} onChange={this.handleChange}/>*/}
           <table className='data-table'>
             <tr>
-              <th>Currency</th>
-              <th>Old Rate</th>
-              <th>New Rate</th>
-              <th>Change</th>
+              <th className='secondary-cols'>Currency</th>
+              <th className={'primary-cols'} colSpan={2}>Buy</th>
+              <th className={'primary-cols'} colSpan={2}>Sell</th>
+              <th className='secondary-cols'>Change</th>
+            </tr>
+            <tr>
+              <th></th>
+              <th className={'primary-children'}>Old</th>
+              <th className={'primary-children'}>New</th>
+              <th className={'primary-children'}>Old</th>
+              <th className={'primary-children'}>New</th>
+              <th></th>
             </tr>
             {this.state.dataMap}
           </table>
-          <h4>Updated {this.recentUpdateTime}</h4>
+
+          <div className={'footer-time-2'}>
+            <h4>Updated {this.recentUpdateTime}</h4>
+          </div>
         </div>
     );
   }
