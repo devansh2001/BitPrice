@@ -4,6 +4,7 @@ import Currency from './Currency.js'
 class CurrencyManager extends Component {
   constructor(props) {
     super(props);
+    this.currencyData = [];
     this.requestedCurrencies = [];
     this.oldRates = {
       "": 0.00
@@ -28,6 +29,7 @@ class CurrencyManager extends Component {
     let currencyPreviousRate = this.oldRates[code] || 0.0000;
     let currencyNewRate = 0.0000;
     let change = 0.00000000000000000000000;
+    let changeColor = 'black';
     console.log(this.requestedCurrencies);
     let mainURL = 'https://api.coindesk.com/v1/bpi/currentprice/';
     let jsonWord = '.json';
@@ -46,8 +48,15 @@ class CurrencyManager extends Component {
         console.log('----');
         console.log('INF: ' + isFinite(change));
         console.log('NaN: ' + isNaN(change));
-        if (isNaN(change) || isFinite(change) || currencyPreviousRate == 0) {
+        if (currencyPreviousRate == 0) {
           change = 0;
+        }
+        if (change > 0) {
+          changeColor = 'green'
+        } else if (change < 0) {
+          changeColor = 'red'
+        } else {
+          changeColor = 'black'
         }
         console.log('Changed Rate to ' + currencyNewRate);
         this.setState(prevState => ({
@@ -58,13 +67,14 @@ class CurrencyManager extends Component {
     this.recentUpdateTime = this.state.allData[0] ? this.state.allData[0]['time']['updated'] : '';
     console.log(currData);
     console.log('Yeah! I got this');
+    change *= 100;
     await this.setState(prevState => ({
       dataMap: [...prevState.dataMap,
             <tr>
               <td>{code}</td>
               <td>{currencyPreviousRate}</td>
               <td>{currencyNewRate}</td>
-              <td>{(change * 100).toPrecision(10)}%</td>
+              <td style={{color: changeColor}}>{change.toPrecision(5)}%</td>
             </tr>
       ]
       //dataMap: this.state.allData.map(conversion => <li>{conversion['bpi'][this.state.currencyCode]['rate']}</li>)
@@ -130,11 +140,14 @@ class CurrencyManager extends Component {
     console.log('Rendering');
     return (
         <div>
+          <select>
+
+          </select><br/>
           <input type='text' value={this.state.currencyCode} onChange={this.handleChange}/>
           <button onClick={this.currencyIsPresent}>Submit</button>
           <button onClick={this.handleRefresh}>Refresh</button>
           <h1>Rendering all the data below</h1>
-          <table>
+          <table className='data-table'>
             <tr>
               <th>Currency</th>
               <th>Old Rate</th>
