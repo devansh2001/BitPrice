@@ -25,7 +25,6 @@ class CurrencyManager extends Component {
     };
     this.recentUpdateTime = this.state.allData[0] ? this.state.allData['time']['updated'] : '';
     setInterval(this.handleRefresh, 60000);
-
   }
 
   //
@@ -160,7 +159,7 @@ class CurrencyManager extends Component {
           <form className={'input-form'} onSubmit={this.currencyIsPresent}>
             Select Currency:
             <Select className={'form-field'} value={this.state.currencyCode} onChange={this.handleChange}>
-              {this.currencyData.map(myOption => <MenuItem value={myOption['currency']}>{myOption['currency']}</MenuItem>)}
+              {this.currencyData.map(myOption => <MenuItem value={myOption['currency']}>{myOption['currency']}, {myOption['country']}</MenuItem>)}
             </Select>
             <Button className={'form-field'} onClick={this.currencyIsPresent} variant="contained" color="primary">
               Get Rate
