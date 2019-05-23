@@ -10,7 +10,7 @@
     "react-bootstrap": "latest"
   },
   "engines": {
-    "npm": "^10.15.3",
+    "npm": "10.15.3",
     "node": "6.4"
   },
   "scripts": {
