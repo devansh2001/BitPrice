@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/BitPrice/static/css/main.106e39fe.chunk.css",
-    "main.js": "/BitPrice/static/js/main.0d12f3e9.chunk.js",
-    "main.js.map": "/BitPrice/static/js/main.0d12f3e9.chunk.js.map",
+    "main.css": "/BitPrice/static/css/main.17d37483.chunk.css",
+    "main.js": "/BitPrice/static/js/main.65681261.chunk.js",
+    "main.js.map": "/BitPrice/static/js/main.65681261.chunk.js.map",
     "runtime~main.js": "/BitPrice/static/js/runtime~main.46858546.js",
     "runtime~main.js.map": "/BitPrice/static/js/runtime~main.46858546.js.map",
     "static/css/2.08c8ee57.chunk.css": "/BitPrice/static/css/2.08c8ee57.chunk.css",
     "static/js/2.d258e90c.chunk.js": "/BitPrice/static/js/2.d258e90c.chunk.js",
     "static/js/2.d258e90c.chunk.js.map": "/BitPrice/static/js/2.d258e90c.chunk.js.map",
     "index.html": "/BitPrice/index.html",
-    "precache-manifest.f455e024c19f7fc7eee607d828297d8e.js": "/BitPrice/precache-manifest.f455e024c19f7fc7eee607d828297d8e.js",
+    "precache-manifest.c9e789162ed2fd8bc2800d13c27a75ba.js": "/BitPrice/precache-manifest.c9e789162ed2fd8bc2800d13c27a75ba.js",
     "service-worker.js": "/BitPrice/service-worker.js",
     "static/css/2.08c8ee57.chunk.css.map": "/BitPrice/static/css/2.08c8ee57.chunk.css.map",
-    "static/css/main.106e39fe.chunk.css.map": "/BitPrice/static/css/main.106e39fe.chunk.css.map"
+    "static/css/main.17d37483.chunk.css.map": "/BitPrice/static/css/main.17d37483.chunk.css.map"
   }
 }
