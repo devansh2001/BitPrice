@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5775472f8671dd123d23d0007d6c4685",
+    "revision": "9a734e42f82348082a2b54d42ff39eee",
     "url": "/BitPrice/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/BitPrice/static/css/2.08c8ee57.chunk.css"
   },
   {
-    "revision": "5c96d1cce51c698f9864",
+    "revision": "b1845eda4f0b5c33a578",
     "url": "/BitPrice/static/css/main.f1ed79d3.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/BitPrice/static/js/2.d258e90c.chunk.js"
   },
   {
-    "revision": "5c96d1cce51c698f9864",
-    "url": "/BitPrice/static/js/main.34631b14.chunk.js"
+    "revision": "b1845eda4f0b5c33a578",
+    "url": "/BitPrice/static/js/main.81342905.chunk.js"
   },
   {
     "revision": "658d7e632186d454e933",
