@@ -136,11 +136,8 @@ class CurrencyManager extends Component {
             <Button className={'form-field refresh-temp'} onClick={this.handleRefresh} variant="contained" color="secondary">
               Refresh
             </Button>
-            {/*<button>Submit</button>*/}
-            {/*<button onClick={this.handleRefresh}>Refresh</button>*/}
             <br/>
           </form>
-          {/*<input type='text' value={this.state.currencyCode} onChange={this.handleChange}/>*/}
 
           <div className={'table-responsive'}>
             <table className='data-table table' style={{overflow: "scroll"}}>
@@ -171,5 +168,4 @@ class CurrencyManager extends Component {
     );
   }
 }
-// {this.state.allData[0]['time']['updated'] === '' ? '' : this.state.allData[this.state.allData.length - 1]['time']['updated']}
 export default CurrencyManager;

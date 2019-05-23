@@ -2,9 +2,7 @@ import React from 'react';
 import './App.css';
 import CurrencyManager from "./components/CurrencyManager";
 import Header from "./components/Header";
-
 import {HashRouter, Route, Link} from 'react-router-dom';
-
 
 function App() {
 
@@ -13,7 +11,6 @@ function App() {
         <div>
           <Header/>
           <CurrencyManager/>
-          {/*{myRequest()}*/}
         </div>
       </HashRouter>
   );
