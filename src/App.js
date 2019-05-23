@@ -3,14 +3,19 @@ import './App.css';
 import CurrencyManager from "./components/CurrencyManager";
 import Header from "./components/Header";
 
+import {HashRouter, Route, Link} from 'react-router-dom';
+
+
 function App() {
 
   return (
-      <div>
-        <Header/>
-        <CurrencyManager/>
-        {/*{myRequest()}*/}
-      </div>
+      <HashRouter basename='/'>
+        <div>
+          <Header/>
+          <CurrencyManager/>
+          {/*{myRequest()}*/}
+        </div>
+      </HashRouter>
   );
 }
 
