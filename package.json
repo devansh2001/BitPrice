@@ -6,9 +6,10 @@
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "react": "^16.8.6",
+    "react-bootstrap": "latest",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "react-bootstrap": "latest"
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1"
   },
   "engines": {
     "npm": "6.4",
