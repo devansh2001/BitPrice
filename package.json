@@ -2,7 +2,7 @@
   "name": "project-7",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://devansh2001.github.io/bitcoin-prices-tracker",
+  "homepage": "https://devansh2001.github.io/bitcoin-price-tracker",
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "react": "^16.8.6",
