@@ -19,7 +19,6 @@ code {
 }
 .data-table {
     width: 100%;
-    /*border: 5px solid #dddddd;*/
     border-collapse: collapse;
 }
 
@@ -36,8 +35,6 @@ th, td {
     font-family: 'Roboto', sans-serif;
     width: 10%;
     font-size: 20px;
-    /*border-left: 1px solid #ddd;*/
-    /*border-right: 1px solid #ddd;*/
 }
 
 .primary-cols {
@@ -46,8 +43,6 @@ th, td {
     font-family: 'Roboto', sans-serif;
     width: 40%;
     font-size: 20px;
-    /*border-left: 1px solid #ddd;*/
-    /*border-right: 1px solid #ddd;*/
 }
 
 .primary-children {
@@ -55,8 +50,6 @@ th, td {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     background-color: darkgray;
-    /*border-left: 1px solid #ddd;*/
-    /*border-right: 1px solid #ddd;*/
 }
 
 .secondary-children {
@@ -67,38 +60,51 @@ th, td {
 
 .header-div {
     background-color: grey;
-    overflow: hidden;
     font-family: 'Roboto', sans-serif;
 }
 
 .head {
-    text-align: right;
+    margin: auto;
     color: white;
-    display: inline-block;
     font-size: 80px;
-    padding-left: 300px;
-    padding-right: 300px;
 }
 
-.bitcoin-img {
-    height: 100px;
-    width: auto;
-    margin: 50px
+@media all and (max-width: 720px) {
+    .bitcoin-img {
+        height: 8em;
+        width: 8em;
+        margin-right:auto;
+        margin-left: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .input-form {
+        margin-top: 30px;
+    }
+    .data-table {
+        margin-top: 30px;
+    }
 }
 
-.img-left {
-    float: left;
+@media all and (min-width: 721px) {
+    .bitcoin-img {
+        display: block;
+        height: 150px;
+        width: auto;
+        margin: 30px auto 40px;
+    }
 }
 
-.img-right {
-    float: right;
-}
+/*@media all and (max-width: 1120px) {*/
+/*    .bitcoin-img {*/
+/*        height: 10em;*/
+/*        width: 10em;*/
+/*        margin-left: auto;*/
+/*        margin-top: 30px;*/
+/*        margin-bottom: 30px;*/
+/*    }*/
 
-.temp-class {
-    display: inline-block;
-}
-
-
+/*}*/
 /*@media all and (max-width: 500px) {*/
 /*    .head{*/
 /*        display: none;*/
@@ -129,6 +135,6 @@ th, td {
     margin: 40px;
 }
 
-.footer-time {
-    font-size: 15px;
+.row {
+    justify-content: space-between;
 }

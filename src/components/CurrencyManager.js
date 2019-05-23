@@ -7,9 +7,6 @@ class CurrencyManager extends Component {
   constructor(props) {
     super(props);
     this.currencyData = mappingCountryCurrency;
-    // for (let data in mappingCountryCurrency) {
-    //   this.currencyData.push(<option value={data['currency']}> {data['currency']} </option>);
-    // }
     this.requestedCurrencies = [];
     this.oldRates = {
       "": 0.00
@@ -25,10 +22,6 @@ class CurrencyManager extends Component {
     this.handleRequest('USD');
   }
 
-  //
-  // cb = (dataFromChild) => {
-  //   console.log(dataFromChild);
-  // };
 
   handleRequest =  async (code = this.state.currencyCode) => {
     let currencyPreviousRate = this.oldRates[code] || 0.0000;
@@ -72,7 +65,6 @@ class CurrencyManager extends Component {
             allData: [...prevState.allData, data]
           }))}
         ).catch(e => console.log(e));
-    //this.props.cb(this.state.receivedData);
     this.recentUpdateTime = this.state.allData[0] ? this.state.allData[0]['time']['updated'] : '';
     console.log(currData);
     console.log('Yeah! I got this');
@@ -88,7 +80,6 @@ class CurrencyManager extends Component {
               <td style={{color: changeColor}} className={'row-normal'}>{change.toPrecision(5)}%</td>
             </tr>
       ]
-      //dataMap: this.state.allData.map(conversion => <li>{conversion['bpi'][this.state.currencyCode]['rate']}</li>)
     }));
     console.log(this.state.allData);
 
@@ -120,11 +111,6 @@ class CurrencyManager extends Component {
     })
   };
 
-  // handleRefresh2 = () => {
-  //   this.setState(prevState => ({
-  //     refreshRequested: !prevState.refreshRequested
-  //   }));
-  // };
 
   handleRefresh = async () => {
     await this.setState({
@@ -139,17 +125,6 @@ class CurrencyManager extends Component {
     await console.log('Handled Requests');
   };
 
-
-  // handleRefresh = async () => {
-  //   let mainURL = 'https://api.coindesk.com/v1/bpi/currentprice/';
-  //   let jsonWord = '.json';
-  //   this.setState({
-  //     dataMap: []
-  //   })
-  //   for (let val in this.state.allData) {
-  //
-  //   }
-  // };
 
   render() {
     console.log('Rendering');
