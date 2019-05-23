@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import mappingCountryCurrency from '../currencyDataFiles/data.js'
 import {Button, Select, MenuItem} from '@material-ui/core';
-
+import 'bootstrap/dist/css/bootstrap.css'
 
 class CurrencyManager extends Component {
   constructor(props) {
@@ -146,7 +146,7 @@ class CurrencyManager extends Component {
             <br/>
           </form>
           {/*<input type='text' value={this.state.currencyCode} onChange={this.handleChange}/>*/}
-          <table className='data-table'>
+          <table className='data-table table-responsive' style={{overflow: "scroll"}}>
             <tr>
               <th className='secondary-cols'>Currency</th>
               <th className={'primary-cols'} colSpan={2}>Buy</th>
