@@ -141,23 +141,26 @@ class CurrencyManager extends Component {
             <br/>
           </form>
           {/*<input type='text' value={this.state.currencyCode} onChange={this.handleChange}/>*/}
-          <table className='data-table table-responsive' style={{overflow: "scroll"}}>
-            <tr>
-              <th className='secondary-cols'>Currency</th>
-              <th className={'primary-cols'} colSpan={2}>Buy</th>
-              <th className={'primary-cols'} colSpan={2}>Sell</th>
-              <th className='secondary-cols'>Change</th>
-            </tr>
-            <tr>
-              <th className={'secondary-children'}></th>
-              <th className={'primary-children'}>Old</th>
-              <th className={'primary-children'}>New</th>
-              <th className={'primary-children'}>Old</th>
-              <th className={'primary-children'}>New</th>
-              <th className={'secondary-children'}></th>
-            </tr>
-            {this.state.dataMap}
-          </table>
+
+          <div className={'table-responsive'}>
+            <table className='data-table table' style={{overflow: "scroll"}}>
+              <tr>
+                <th className='secondary-cols'>Currency</th>
+                <th className={'primary-cols'} colSpan={2}>Buy</th>
+                <th className={'primary-cols'} colSpan={2}>Sell</th>
+                <th className='secondary-cols'>Change</th>
+              </tr>
+              <tr>
+                <th className={'secondary-children'}></th>
+                <th className={'primary-children'}>Old</th>
+                <th className={'primary-children'}>New</th>
+                <th className={'primary-children'}>Old</th>
+                <th className={'primary-children'}>New</th>
+                <th className={'secondary-children'}></th>
+              </tr>
+              {this.state.dataMap}
+            </table>
+          </div>
 
           <br/>
           <br/>
