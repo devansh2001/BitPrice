@@ -95,36 +95,6 @@ th, td {
     }
 }
 
-/*@media all and (max-width: 1120px) {*/
-/*    .bitcoin-img {*/
-/*        height: 10em;*/
-/*        width: 10em;*/
-/*        margin-left: auto;*/
-/*        margin-top: 30px;*/
-/*        margin-bottom: 30px;*/
-/*    }*/
-
-/*}*/
-/*@media all and (max-width: 500px) {*/
-/*    .head{*/
-/*        display: none;*/
-/*    }*/
-/*    .img-right {*/
-/*        display: none;*/
-/*    }*/
-/*    .header-div {*/
-/*        width: 100%;*/
-/*    }*/
-/*    .input-form {*/
-/*        margin: 30px;*/
-/*    }*/
-/*    .img-left {*/
-/*        display: block;*/
-/*        margin: 30px auto;*/
-/*    }*/
-/*}*/
-
-
 .input-form {
     text-align: center;
     font-family: 'Roboto', "American Typewriter", 'sans-serif';
