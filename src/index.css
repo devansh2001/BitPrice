@@ -129,10 +129,11 @@ th, td {
     text-align: center;
     font-family: 'Roboto', "American Typewriter", 'sans-serif';
     font-size: 20px;
+    margin: auto;
 }
 
 .form-field {
-    margin: 40px;
+    margin: 30px;
 }
 
 .row {
